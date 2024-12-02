@@ -6,10 +6,7 @@ import Link from 'next/link';
 const LatestIssues = async () => {
   const issues = await prisma.issue.findMany({
     orderBy: { createdAt: 'desc' },
-    take: 5,
-    include: {
-      assignedToUser: true,
-    },
+    take: 5
   });
   return (
     <Card>
@@ -26,14 +23,6 @@ const LatestIssues = async () => {
                     </Link>
                     <IssueStatusBadge status={issue.status} />
                   </Flex>
-                  {issue.assignedToUser && (
-                    <Avatar
-                      src={issue.assignedToUser.image!}
-                      fallback="?"
-                      size="2"
-                      radius="full"
-                    />
-                  )}
                 </Flex>
               </Table.Cell>
             </Table.Row>

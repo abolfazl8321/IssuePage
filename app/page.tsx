@@ -21,7 +21,7 @@ export default async function Home() {
         <IssueSummary open={open} closed={closed} inProgress={inProgress}/>
         <IssueChart open={open} closed={closed} inProgress={inProgress}/>
       </Flex>
-    {/*<LatestIssues/>*/}
+    <LatestIssues/>
     </Grid>
   )
 }
